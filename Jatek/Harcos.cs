@@ -52,7 +52,7 @@ namespace Jatek
         {
             if (masikHarcos == this)
             {
-
+                Console.WriteLine("Hiba");
             }
             if (masikHarcos.eletero == 0 || this.eletero == 0)
             {
@@ -89,7 +89,14 @@ namespace Jatek
         }
         public void Gyogyul() 
         {
-            
+            if (this.eletero == 0)
+            {
+                this.eletero = this.MaxEletero;
+            }
+            else 
+            {
+                this.eletero += this.szint + 3;
+            }
         }
         public override string ToString()
         {
