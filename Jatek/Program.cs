@@ -12,7 +12,6 @@ namespace Jatek
     class Program
     {
         
-       
         static void Main(string[] args)
         {
             List<Harcos> harcosok = new List<Harcos>();
@@ -45,13 +44,50 @@ namespace Jatek
             Console.WriteLine("Adja meg a statuszsablont(1/2/3):");
             int statusz = Convert.ToInt32(Console.ReadLine());
 
-            var a = new Harcos(nev, statusz);
-            harcosok.Add(a);
+            var uj = new Harcos(nev, statusz);
+            harcosok.Add(uj);
           
             foreach (var item in harcosok)
             {
                 Console.WriteLine(item);
             }
+            for (int i = 0; i < harcosok.Count; i++)
+            {
+                Console.WriteLine("{0}.{1}",i+1,harcosok[i]);
+            }
+            //meccs
+            char valasztas;
+            do
+            {
+                Console.WriteLine("Válasszon a lehetőségek közül:\n " +
+                   "a)Megküzdeni egy harcossal\n" +
+                   "b)Gyogyulás\n" +
+                   "c)Kilép");
+                valasztas = Convert.ToChar(Console.ReadLine());
+                while (valasztas != 'a' && valasztas != 'b' && valasztas != 'c')
+                {
+                    Console.WriteLine("Válasszon a lehetőségek közül:\n " +
+                   "a)Megküzdeni egy harcossal\n" +
+                   "b)Gyogyulás\n" +
+                   "c)Kilép");
+                    valasztas = Convert.ToChar(Console.ReadLine());
+                    
+                }
+                if (valasztas == 'a')
+                {
+
+                }
+                else if (valasztas == 'b')
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine("Adjon meg másik betűt!");
+                }
+
+            } while (valasztas != 'c');
+
 
             Console.ReadLine();
 
