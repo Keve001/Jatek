@@ -11,6 +11,8 @@ namespace Jatek
 {
     class Program
     {
+        
+       
         static void Main(string[] args)
         {
             List<Harcos> harcosok = new List<Harcos>();
@@ -19,7 +21,6 @@ namespace Jatek
             harcosok.Add(new Harcos("TREG", 3));
 
             StreamReader r = new StreamReader("harcosok 1.csv");
-            
             try
             {
                 while (!r.EndOfStream)
@@ -35,6 +36,18 @@ namespace Jatek
                 throw;
             }
             r.Close();
+            //foreach (var item in harcosok)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            Console.WriteLine("Adja meg a nevet:");
+            string nev = Console.ReadLine();
+            Console.WriteLine("Adja meg a statuszsablont(1/2/3):");
+            int statusz = Convert.ToInt32(Console.ReadLine());
+
+            var a = new Harcos(nev, statusz);
+            harcosok.Add(a);
+          
             foreach (var item in harcosok)
             {
                 Console.WriteLine(item);

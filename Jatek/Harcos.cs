@@ -69,7 +69,7 @@ namespace Jatek
         public int AlapSebzes { get => alapSebzes;  }
         public int Sebzes { get => AlapSebzes + szint;  }
         public int Szintlepes { get => 10 + szint*5 ; }
-        public int MaxEletero { get => alapEletero+ szint*3; }
+        public int MaxEletero { get => alapEletero + szint*3; }
         public void Megkuzd(Harcos masikHarcos) 
         {
             if (masikHarcos == this)
