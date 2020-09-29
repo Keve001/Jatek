@@ -48,8 +48,43 @@ namespace Jatek
         public int Sebzes { get => AlapSebzes + szint;  }
         public int Szintlepes { get => 10 + szint*5 ; }
         public int MaxEletero { get => alapEletero+ szint*3; }
-        public void Megkuzd() 
+        public void Megkuzd(Harcos masikHarcos) 
         {
+            if (masikHarcos == this)
+            {
+
+            }
+            if (masikHarcos.eletero == 0 || this.eletero == 0)
+            {
+                Console.WriteLine("Hiba");
+            }
+            else
+            {
+                masikHarcos.eletero -= this.Sebzes;
+            }
+            if (masikHarcos.eletero > 0)
+            {
+                this.eletero -= masikHarcos.Sebzes;
+            }
+            if (masikHarcos.eletero >0 )
+            {
+                masikHarcos.tapasztalat += 5;
+            }
+            if (this.eletero > 0)
+            {
+                this.tapasztalat += 5;
+            }
+            if (this.eletero < 0 || masikHarcos.eletero < 0 )
+            {
+                if (this.eletero>0)
+                {
+                    this.tapasztalat += 10;
+                }
+                else if (masikHarcos.eletero > 0)
+                {
+                    masikHarcos.tapasztalat += 10;
+                }
+            }
             
         }
         public void Gyogyul() 
