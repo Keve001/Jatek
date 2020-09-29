@@ -41,8 +41,30 @@ namespace Jatek
 
         public string Nev { get => nev; set => nev = value; }
         public int Szint { get => szint; set => szint = value; }
-        public int Tapasztalat { get => tapasztalat; set => tapasztalat = value; }
-        public int Eletero { get => eletero; set => eletero = value; }
+        public int Tapasztalat { get => tapasztalat; 
+            set 
+            {
+                if (this.tapasztalat == Szintlepes)
+                {
+                    this.szint++;
+                    this.tapasztalat = 0;
+                    this.eletero = MaxEletero;
+                }
+            }
+        }
+        public int Eletero { get => eletero; 
+            set 
+            {
+                if (this.eletero == 0)
+                {
+                    this.tapasztalat = 0;
+                }
+                if (this.eletero > MaxEletero)
+                {
+                    this.eletero = MaxEletero;
+                }
+            } 
+        }
         public int AlapEletero { get => alapEletero;  }
         public int AlapSebzes { get => alapSebzes;  }
         public int Sebzes { get => AlapSebzes + szint;  }
