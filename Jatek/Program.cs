@@ -78,6 +78,7 @@ namespace Jatek
                 }
                 if (valasztas == 'a')
                 {
+                    int osszHarc = 0;
                     int ellVal;
                     do
                     {
@@ -88,6 +89,16 @@ namespace Jatek
                         }
                         ellVal = Convert.ToInt32(Console.ReadLine());
                         uj.Megkuzd(harcosok[ellVal - 1]);
+                        osszHarc++;
+                        if (osszHarc == 3)
+                        {
+                            uj.Megkuzd(harcosok[p.Next(0, 4)]);
+                            for (int i = 0; i < harcosok.Count; i++)
+                            {
+                                harcosok[i].Gyogyul();
+                            }
+                            
+                        }
 
                     } while (ellVal < 0 && ellVal > harcosok.Count );
                     
