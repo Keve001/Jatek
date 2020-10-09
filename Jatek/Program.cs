@@ -19,6 +19,9 @@ namespace Jatek
             harcosok.Add(new Harcos("TRETT", 2));
             harcosok.Add(new Harcos("TREG", 3));
 
+            Random p = new Random();
+            
+
             StreamReader r = new StreamReader("harcosok 1.csv");
             try
             {
@@ -75,11 +78,25 @@ namespace Jatek
                 }
                 if (valasztas == 'a')
                 {
+                    int ellVal;
+                    do
+                    {
+                        Console.WriteLine("Hányadik ellenfelet akarja?");
+                        for (int i = 0; i < harcosok.Count; i++)
+                        {
+                            Console.WriteLine(harcosok[i]);
+                        }
+                        ellVal = Convert.ToInt32(Console.ReadLine());
+                        uj.Megkuzd(harcosok[ellVal - 1]);
 
+                    } while (ellVal < 0 && ellVal > harcosok.Count );
+                    
+                    
+                    
                 }
                 else if (valasztas == 'b')
                 {
-
+                    uj.Gyogyul();
                 }
                 else
                 {
